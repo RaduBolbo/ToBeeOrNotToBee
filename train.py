@@ -7,6 +7,7 @@ import torch.nn.functional as F
 from tqdm import tqdm
 from sklearn.metrics import accuracy_score
 
+
 class SimpleBeehiveNet(nn.Module):
     def __init__(self, input_size=13 * 157, hidden_size=64, output_size=1):
         super(SimpleBeehiveNet, self).__init__()
@@ -20,7 +21,6 @@ class SimpleBeehiveNet(nn.Module):
         x = self.dropout(x)
         x = torch.sigmoid(self.fc2(x))  
         return x
-
 
 
 def train_model(model, train_loader, val_loader, num_epochs, criterion, optimizer, device):
